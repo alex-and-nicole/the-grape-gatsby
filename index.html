@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const apiKey = "440d6164874e4c1cadd56c5f2f61dcbd";
+
+        const url = new URL('https://api.spoonacular.com/food/wine/pairing');
+        //https://api.spoonacular.com/food/wine/recommendation
+        console.log(url);
+
+        url.search = new URLSearchParams({
+            food: "chocolate",
+            apiKey: apiKey
+        })
+        
+        fetch(url)
+            .then((response) => {
+                console.log(response);
+                return response.json();
+            })
+            .then((jsonResponse) => {
+                console.log(jsonResponse);
+            })
+
+    </script>
+</body>
+</html>
