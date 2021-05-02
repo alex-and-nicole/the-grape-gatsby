@@ -14,7 +14,7 @@
     // * ELSE (no data return) run error handling function!!!!!
 
 //5 - Error handling function
-    // * if user lcicks without actually inputting any data in the form, alert them to do so
+    // * if user clicks without actually inputting any data in the form, alert them to do so
     // * if user inputs an invalid string (i.e a main dish that doesn't retrun anything), print to the page that there are no results
 
 const apiKey = "440d6164874e4c1cadd56c5f2f61dcbd";
