@@ -9,8 +9,9 @@
     gatsbyApp.input = document.querySelector('input');
     gatsbyApp.wineResults = document.querySelector('.wine');
     
+    
 // 5 - Define a method which will display data returned from API call
-    gatsbyApp.displayData = (pairedWines) => {
+    gatsbyApp.displayData = (pairedWines, pairingText) => {
         // Iterate through wine pairing array
         pairedWines.forEach((wine) => {
             // console.log(wine);
@@ -23,6 +24,12 @@
             `;
             //Append newly created <li>s to the <ul> AKA wineResults
             gatsbyApp.wineResults.append(pairingOption);
+
+            const pairingDescription = document.querySelector('.results-text');
+
+            pairingDescription.innerHTML = `
+            <h3>Wine Pairing Flavour Profile:</h3>
+            <p>${pairingText}</p>`;
         });
     }
 
@@ -42,7 +49,7 @@
             .then((jsonResponse) => {
                 console.log(jsonResponse);
                 //Call the displayData method
-                gatsbyApp.displayData(jsonResponse.pairedWines);
+                gatsbyApp.displayData(jsonResponse.pairedWines, jsonResponse.pairingText);
             })
     }
     // * IF the API returns data, display the data on the page (i.e call the display function)
