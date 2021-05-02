@@ -7,11 +7,18 @@
     gatsbyApp.url = new URL('https://api.spoonacular.com/food/wine/pairing');
     gatsbyApp.form = document.querySelector('form');
     gatsbyApp.input = document.querySelector('input');
+    gatsbyApp.wineResults = document.querySelector('.wine');
     
 // 5 - Define a method which will display data returned from API call
     gatsbyApp.displayData = (pairedWines) => {
         pairedWines.forEach((wine) => {
             console.log(wine);
+            const pairingOption = document.createElement('li');
+            pairingOption.innerHTML = `
+                <i class="fas fa-wine-glass-alt"></i>
+                <p>${wine}</p>
+            `;
+            gatsbyApp.wineResults.append(pairingOption);
         });
     }
 
