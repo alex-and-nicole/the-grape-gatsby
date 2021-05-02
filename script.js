@@ -35,6 +35,11 @@ gatsbyApp.displayData = (pairedWines, pairingText) => {
     });
 }
 
+// * IF the API returns data, display the data on the page (i.e call the display function)
+// * ELSE (no data return) run error handling function!!!!!
+
+
+
 // A function that makes the initial API call to the browser
 gatsbyApp.getData = (userInput) => {
     gatsbyApp.url.search = new URLSearchParams({
@@ -50,11 +55,13 @@ gatsbyApp.getData = (userInput) => {
         .then((jsonResponse) => {
             console.log(jsonResponse);
             //Calls the displayData method
-            gatsbyApp.displayData(jsonResponse.pairedWines, jsonResponse.pairingText);
+            if (jsonResponse.status === "failure") {
+                alert('Invalid input!');
+            } else {
+                gatsbyApp.displayData(jsonResponse.pairedWines, jsonResponse.pairingText);
+            }
         })
 }
-// * IF the API returns data, display the data on the page (i.e call the display function)
-// * ELSE (no data return) run error handling function!!!!!
 
 
 //Defines the initialization function
