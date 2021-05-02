@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Grape Gatsby</title>
+    <link rel="stylesheet" href="dist/css/style.css">
 </head>
 <body>
     <!-- Header code starts here -->
@@ -15,18 +16,38 @@
                 <h1>The Grape Gatsby</h1>
                 <h2>Avoid <span>pour</span> decisions.</h2>
                 <p>Jay Gatsby was known for his rip-roaring parties. You too can capture the minds and imaginations of your friends and family by never serving the wrong wine. Just sit back, relax, and enter your main course below. The Grape Gatsby will do the rest.</p>
+                <p>Please drink responsibly!</p>
             </div>
         </div>
     </header>
 
     <!-- Main starts here -->
     <main>
+        <div class="wrapper">
+            <!-- Form input code -->
+            <form action="">
+                <label for="userMainDish" class="sr-only">Enter Main Dish</label>
+                <input type="text" id="userMainDish" placeholder="What's for dinner, old chap?">
+                <button type="submit">Help me!</button>
+            </form>
 
+            <h2>Suggested wine pairings:</h2>
+            <!-- Content gets dynamically added here using JavaScript -->
+            <div class="results-container">
+                <!-- Wine glass icon and names of wine will be appended here -->
+                <ul class="wine"></ul>
+                <div class="results-text">
+                    <!--Wine text description will be appended here  -->
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer code starts here -->
     <footer>
-
+        Created at <a href="">Juno College</a> 2021. Wine suggestions courtesy of <a href="">Spoonacular</a>. Image by <a href="">George Barbier</a> use under the CC0 license.
     </footer>
 
     <!-- Javascript link tags -->
