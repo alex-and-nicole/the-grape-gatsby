@@ -11,13 +11,17 @@
     
 // 5 - Define a method which will display data returned from API call
     gatsbyApp.displayData = (pairedWines) => {
+        // Iterate through wine pairing array
         pairedWines.forEach((wine) => {
-            console.log(wine);
+            // console.log(wine);
+            // Create <li> that will hold each wine suggestion
             const pairingOption = document.createElement('li');
+            // Write HTML that will be contained within <li> (pairingOption)
             pairingOption.innerHTML = `
                 <i class="fas fa-wine-glass-alt"></i>
                 <p>${wine}</p>
             `;
+            //Append newly created <li>s to the <ul> AKA wineResults
             gatsbyApp.wineResults.append(pairingOption);
         });
     }
