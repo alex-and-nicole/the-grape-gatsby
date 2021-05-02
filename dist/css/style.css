@@ -227,3 +227,9 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.wrapper {
+  width: 1440px;
+  max-width: 90%;
+  margin: 0 auto;
+}
