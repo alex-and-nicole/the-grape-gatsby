@@ -8,21 +8,23 @@ gatsbyApp.url = new URL('https://api.spoonacular.com/food/wine/pairing');
 gatsbyApp.form = document.querySelector('form');
 gatsbyApp.input = document.querySelector('input');
 gatsbyApp.wineResults = document.querySelector('.wine');
+// gatsbyApp.resultsContainer = document.querySelector('.results-container'); 
 
 
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
     // Iterates through wine pairing array
     pairedWines.forEach((wine) => {
-        //<li> that will hold each wine suggestion
-        const pairingOption = document.createElement('li');
+       //<li> that will hold each wine suggestion
+        gatsbyApp.pairingOption = document.createElement('li');
+        
         //HTML that will be contained within <li> (pairingOption)
-        pairingOption.innerHTML = `
+        gatsbyApp.pairingOption.innerHTML = `
                 <i class="fas fa-wine-glass-alt"></i>
                 <p>${wine}</p>
             `;
         //Appends newly created <li>s to the <ul> AKA wineResults
-        gatsbyApp.wineResults.append(pairingOption);
+        gatsbyApp.wineResults.append(gatsbyApp.pairingOption);
 
         //Stores div.results-text in a variable:
         const pairingDescription = document.querySelector('.results-text');
@@ -63,9 +65,7 @@ gatsbyApp.init = () => {
     gatsbyApp.form.addEventListener('submit', (event) => {
         //Prevent page refresh on submit
         event.preventDefault();
-
-        //Clear previous search results
-
+        
         //Stores user input in a variable
         gatsbyApp.userInput = gatsbyApp.input.value;
 
@@ -74,6 +74,10 @@ gatsbyApp.init = () => {
 
         //Calls API request function (pass userInput as argument)
         gatsbyApp.getData(gatsbyApp.userInput);
+        //Clear previous search results
+       
+        const clearPairOption = gatsbyApp.wineResults;
+        clearPairOption.innerHTML = '';
     });
 }
 
