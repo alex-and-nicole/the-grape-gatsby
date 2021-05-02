@@ -54,10 +54,10 @@ gatsbyApp.getData = (userInput) => {
         })
         .then((jsonResponse) => {
             console.log(jsonResponse);
-            //Calls the displayData method
             if (jsonResponse.status === "failure") {
                 alert('Invalid input!');
             } else {
+                //Calls the displayData method
                 gatsbyApp.displayData(jsonResponse.pairedWines, jsonResponse.pairingText);
             }
         })
