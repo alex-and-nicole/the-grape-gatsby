@@ -8,9 +8,14 @@
     gatsbyApp.form = document.querySelector('form');
     gatsbyApp.input = document.querySelector('input');
     
+// 5 - Define a method which will display data returned from API call
+    gatsbyApp.displayData = (pairedWines) => {
+        pairedWines.forEach((wine) => {
+            console.log(wine);
+        });
+    }
 
 // 4 - Make call to the API with a parameter that will act as a place holder for the user's form input
-    //https://api.spoonacular.com/food/wine/recommendation
     // console.log(url);
     gatsbyApp.getData = (userInput) => {
         gatsbyApp.url.search = new URLSearchParams({
@@ -25,6 +30,8 @@
             })
             .then((jsonResponse) => {
                 console.log(jsonResponse);
+                //Call the displayData method
+                gatsbyApp.displayData(jsonResponse.pairedWines);
             })
     }
     // * IF the API returns data, display the data on the page (i.e call the display function)
@@ -33,7 +40,6 @@
 
 // 2 - Create init function
     gatsbyApp.init = () => {
-        // console.log('hiiiii');
         // - Add event listener:
         // * On submit: create variable to store user's form input (i.e. their main dish)
         // * take user's input to make a request to the API (i.e call the API call function and pass in the user's input as the argument)
