@@ -3,5 +3,17 @@
 header {
     background-image: url(../../assets/dinner-party-scene.jpg);
     background-size: cover;
-    min-height: 90vh;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    .text-container {
+        background: rgba(0, 0, 0, 0.8);
+        width: 60rem;
+        padding: 3rem 12rem 3rem 3rem;
+        position: absolute;
+        bottom: 11.5rem;
+        right: 11.5rem;  
+    }   
 }
+
