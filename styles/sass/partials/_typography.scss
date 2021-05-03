@@ -70,7 +70,13 @@ li i {
   font-size: 10rem;
 }
 
+.results-heading {
+  font-weight: normal;
+  font-size: 3rem;
+}
+
 .text-box {
+  width: 13rem;
   height: 5rem;
   background-color: $light-pink;
   display: flex;
@@ -78,4 +84,7 @@ li i {
   justify-content: center;
   padding: 1rem;
   margin-top: 1rem;
+  p {
+    max-width: 11rem;
+  }
 }
