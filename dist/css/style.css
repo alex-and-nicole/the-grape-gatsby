@@ -292,6 +292,11 @@ p {
   font-style: italic;
 }
 
+.form-header {
+  padding-bottom: 2rem;
+  font-style: italic;
+}
+
 input::placeholder {
   font-family: "Raleway", sans-serif;
 }
@@ -319,9 +324,13 @@ header .text-container {
 }
 
 main {
-  padding-top: 3rem;
+  padding-top: 5rem;
   min-height: 50vh;
   background-color: #EFE7D5;
+}
+
+form {
+  margin-bottom: 7.5rem;
 }
 
 input {
@@ -335,6 +344,15 @@ button {
   border: none;
   padding: 1rem 2rem;
   box-shadow: 0.25rem 0.25rem 0.25rem 0rem rgba(0, 0, 0, 0.25);
+}
+
+button:hover, button:focus {
+  background-color: #b0c6ca;
+  cursor: pointer;
+}
+
+.results-container {
+  padding-bottom: 20rem;
 }
 
 footer {

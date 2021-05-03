@@ -1,9 +1,13 @@
 // Main element styles 
 
 main {
-    padding-top: 3rem;
+    padding-top: 5rem;
     min-height: 50vh;
     background-color: $beige;
+}
+
+form {
+    margin-bottom: 7.5rem;
 }
 
 input {
@@ -17,4 +21,13 @@ button {
     border: none;
     padding: 1rem 2rem;
     box-shadow: 0.25rem 0.25rem 0.25rem 0rem rgba(0, 0, 0, 0.25);
+    &:hover,
+    &:focus {
+        background-color: lighten($light-teal,10);
+        cursor: pointer;
+    }
+}
+
+.results-container {
+    padding-bottom: 20rem;
 }

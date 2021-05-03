@@ -81,7 +81,7 @@ gatsbyApp.init = () => {
         event.preventDefault();
         
         //Stores user input in a variable
-        gatsbyApp.userInput = gatsbyApp.input.value;
+        gatsbyApp.userInput = gatsbyApp.input.value.trim();
 
         // Clear form input
         gatsbyApp.input.value = '';

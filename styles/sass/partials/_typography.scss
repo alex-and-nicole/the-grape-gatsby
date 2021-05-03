@@ -52,6 +52,11 @@ p {
 
 //Form typography styles
 
+.form-header{
+    padding-bottom: 2rem;
+    font-style: italic;
+}
+
 input::placeholder {
      font-family: $raleway;
 }
