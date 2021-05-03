@@ -9,33 +9,35 @@ gatsbyApp.form = document.querySelector('form');
 gatsbyApp.input = document.querySelector('input');
 gatsbyApp.wineResults = document.querySelector('.wine');
 gatsbyApp.resultsContainer = document.querySelector('.results-container'); 
+//Stores div.results-text in a variable:
+gatsbyApp.pairingDescription = document.querySelector('.results-text');
 
 
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
     if (pairedWines === undefined || pairedWines.length === 0) {
-        alert('errorrrr');
-    }
-    // Iterates through wine pairing array
-    pairedWines.forEach((wine) => {
-       //<li> that will hold each wine suggestion
-        gatsbyApp.pairingOption = document.createElement('li');
-        
-        //HTML that will be contained within <li> (pairingOption)
-        gatsbyApp.pairingOption.innerHTML = `
-                <i class="fas fa-wine-glass-alt"></i>
-                <p>${wine}</p>
-            `;
-        //Appends newly created <li>s to the <ul> AKA wineResults
-        gatsbyApp.wineResults.append(gatsbyApp.pairingOption);
+        const errorMessage = document.querySelector('.error');
+        errorMessage.textContent = 'Sorry bud';
+    } else {
+        // Iterates through wine pairing array
+        pairedWines.forEach((wine) => {
+        //<li> that will hold each wine suggestion
+            gatsbyApp.pairingOption = document.createElement('li');
+            
+            //HTML that will be contained within <li> (pairingOption)
+            gatsbyApp.pairingOption.innerHTML = `
+                    <i class="fas fa-wine-glass-alt"></i>
+                    <p>${wine}</p>
+                `;
+            //Appends newly created <li>s to the <ul> AKA wineResults
+            gatsbyApp.wineResults.append(gatsbyApp.pairingOption);
 
-        //Stores div.results-text in a variable:
-        const pairingDescription = document.querySelector('.results-text');
-        //HTML that is generated within div.results-text
-        pairingDescription.innerHTML = `
-            <h3>Wine Pairing Flavour Profile:</h3>
-            <p>${pairingText}</p>`;
-    });
+            //HTML that is generated within div.results-text
+            gatsbyApp.pairingDescription.innerHTML = `
+                <h3>Wine Pairing Flavour Profile:</h3>
+                <p>${pairingText}</p>`;
+        });
+    }
 }
 
 // * IF the API returns data, display the data on the page (i.e call the display function)
@@ -83,6 +85,8 @@ gatsbyApp.init = () => {
        
         const clearPairOption = gatsbyApp.wineResults;
         clearPairOption.innerHTML = '';
+
+        gatsbyApp.pairingDescription.innerHTML = '';
     });
 }
 
