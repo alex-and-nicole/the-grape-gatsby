@@ -452,8 +452,14 @@ button:hover, button:focus {
   flex-direction: column;
 }
 
+.flex-container .error {
+  position: relative;
+  top: 5rem;
+}
+
 .results-text {
   width: 60rem;
+  padding-top: 5rem;
 }
 
 footer {

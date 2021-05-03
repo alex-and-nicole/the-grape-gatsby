@@ -19,10 +19,10 @@ gatsbyApp.errorMessage = document.querySelector('.error');
 gatsbyApp.displayData = (pairedWines, pairingText) => {
     gatsbyApp.resultsContainer.classList.remove('hide');
     if (pairedWines === undefined || (pairingText === "" && pairedWines.length === 0)) {
-        gatsbyApp.errorMessage.textContent = "I'm sorry, Old Sport. Not quite sure what that is.";
+        gatsbyApp.errorMessage.textContent = "I'm sorry, Old Sport. I don't think wine will go well with that.";
     } else if (pairedWines.length === 0 && pairingText !== "") {
         gatsbyApp.pairingDescription.innerHTML = `
-            <h3>"I don't have a specific wine for that but here is the flavour profile--"</h3>
+            <h3>"I don't have a specific wine for that, but here is its flavour profile--"</h3>
             <p>${pairingText}</p>`;
     } else {
         // Iterates through wine pairing array

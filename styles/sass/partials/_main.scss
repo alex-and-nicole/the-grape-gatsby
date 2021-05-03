@@ -62,8 +62,13 @@ button {
   display: flex;
   align-items: center;
   flex-direction: column;
+  .error {
+    position: relative;
+    top: 5rem;
+  }
 }
 
 .results-text {
   width: 60rem;
+  padding-top: 5rem;
 }
