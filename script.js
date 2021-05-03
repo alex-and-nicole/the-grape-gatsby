@@ -9,15 +9,14 @@ gatsbyApp.form = document.querySelector('form');
 gatsbyApp.input = document.querySelector('input');
 gatsbyApp.wineResults = document.querySelector('.wine');
 gatsbyApp.resultsContainer = document.querySelector('.results-container'); 
-//Stores div.results-text in a variable:
 gatsbyApp.pairingDescription = document.querySelector('.results-text');
+gatsbyApp.errorMessage = document.querySelector('.error');
 
 
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
     if (pairedWines === undefined || pairedWines.length === 0) {
-        const errorMessage = document.querySelector('.error');
-        errorMessage.textContent = 'Sorry bud';
+        gatsbyApp.errorMessage.textContent = 'Sorry bud';
     } else {
         // Iterates through wine pairing array
         pairedWines.forEach((wine) => {
@@ -81,12 +80,15 @@ gatsbyApp.init = () => {
 
         //Calls API request function (pass userInput as argument)
         gatsbyApp.getData(gatsbyApp.userInput);
+        
         //Clear previous search results
-       
         const clearPairOption = gatsbyApp.wineResults;
         clearPairOption.innerHTML = '';
-
         gatsbyApp.pairingDescription.innerHTML = '';
+
+        //Remove error message on submit
+        gatsbyApp.errorMessage.textContent = '';
+            
     });
 }
 
