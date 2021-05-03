@@ -8,19 +8,27 @@ gatsbyApp.url = new URL('https://api.spoonacular.com/food/wine/pairing');
 gatsbyApp.form = document.querySelector('form');
 gatsbyApp.input = document.querySelector('input');
 gatsbyApp.wineResults = document.querySelector('.wine');
-gatsbyApp.resultsContainer = document.querySelector('.results-container'); 
+gatsbyApp.resultsContainer = document.querySelector('.results-container');
+gatsbyApp.resultsHeading = document.querySelector('.results-heading');
 gatsbyApp.pairingDescription = document.querySelector('.results-text');
 gatsbyApp.errorMessage = document.querySelector('.error');
 
 
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
-    if (pairedWines === undefined || pairedWines.length === 0) {
+    if (pairedWines === undefined) {
         gatsbyApp.errorMessage.textContent = 'Sorry bud';
+    } else if (pairedWines.length === 0 && pairingText !== "") {
+        gatsbyApp.pairingDescription.innerHTML = `
+            <h3>Wine Pairing Flavour Profile:</h3>
+            <p>${pairingText}</p>`;
     } else {
         // Iterates through wine pairing array
         pairedWines.forEach((wine) => {
-        //<li> that will hold each wine suggestion
+            //Create element that will hold result heading
+            gatsbyApp.resultsHeading.textContent = 'Suggested wine pairings:';
+    
+            //<li> that will hold each wine suggestion
             gatsbyApp.pairingOption = document.createElement('li');
             
             //HTML that will be contained within <li> (pairingOption)
