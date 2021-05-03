@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway&display=swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -232,4 +233,35 @@ html {
   width: 1440px;
   max-width: 90%;
   margin: 0 auto;
+}
+
+img {
+  width: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+  font-family: "Raleway", sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Abril Fatface", cursive;
+}
+
+header {
+  background-image: url(../../assets/dinner-party-scene.jpg);
+  background-size: cover;
+  min-height: 90vh;
 }
