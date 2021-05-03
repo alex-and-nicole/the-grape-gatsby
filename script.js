@@ -17,7 +17,7 @@ gatsbyApp.errorMessage = document.querySelector('.error');
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
     if (pairedWines === undefined) {
-        gatsbyApp.errorMessage.textContent = 'Sorry bud';
+        gatsbyApp.errorMessage.textContent = "I'm sorry, Old Sport. Not quite sure what that is.";
     } else if (pairedWines.length === 0 && pairingText !== "") {
         gatsbyApp.pairingDescription.innerHTML = `
             <h3>Wine Pairing Flavour Profile:</h3>
@@ -96,6 +96,9 @@ gatsbyApp.init = () => {
 
         //Remove error message on submit
         gatsbyApp.errorMessage.textContent = '';
+        
+        //Removes "Suggested wine pairings" heading
+        gatsbyApp.resultsHeading.textContent = '';
             
     });
 }

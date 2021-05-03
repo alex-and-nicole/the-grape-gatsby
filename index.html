@@ -26,16 +26,17 @@
     <main>
         <div class="wrapper">
             <!-- Form input code -->
+            <h3>"What's for dinner, ol' chap?"</h3>
             <form action="">
                 <label for="userMainDish" class="sr-only">Enter Main Dish</label>
-                <input type="text" id="userMainDish" placeholder="What's for dinner, old chap?">
+                <input type="text" id="userMainDish" name="userMainDish" placeholder="Enter ingredient (example: cheese), dish (example: steak), or cuisine (example: Nordic)">
                 <button type="submit">Help me!</button>
             </form>
 
             <!-- <h2>Suggested wine pairings:</h2> -->
             <!-- Content gets dynamically added here using JavaScript -->
             <div class="results-container">
-                <h2 class="results-heading"></h2>
+                <h3 class="results-heading"></h3>
                 <p class="error"></p>
                 <ul class="wine">
                     <!-- Wine glass icon and names of wine will be appended here -->
@@ -49,7 +50,7 @@
 
     <!-- Footer code starts here -->
     <footer>
-        Created at <a href="">Juno College</a>, 2021. Wine suggestions courtesy of <a href="">Spoonacular</a>. Image by <a href="">George Barbier</a>, used under the CC0 license.
+        Created at <a href="https://junocollege.com/">Juno College</a>, 2021. Wine suggestions courtesy of <a href="https://spoonacular.com/food-api">Spoonacular</a>. Image by <a href="https://artsandculture.google.com/entity/george-barbier/m0m7c4?hl=en">George Barbier</a>, used under the CC0 license.
     </footer>
 
     <!-- Javascript link tags -->
