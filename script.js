@@ -2,7 +2,8 @@
 
 //App name space object variable: 
 const gatsbyApp = {}
-gatsbyApp.apiKey = '440d6164874e4c1cadd56c5f2f61dcbd';
+gatsbyApp.apiKey = '1c9c06b783734e7c83e8eb8afb05185f';
+// gatsbyApp.apiKey = '440d6164874e4c1cadd56c5f2f61dcbd';
 gatsbyApp.url = new URL('https://api.spoonacular.com/food/wine/pairing');
 // Stored HTML elements variables
 gatsbyApp.form = document.querySelector('form');
@@ -16,6 +17,7 @@ gatsbyApp.errorMessage = document.querySelector('.error');
 
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
+    gatsbyApp.resultsContainer.classList.remove('hide');
     if (pairedWines === undefined || (pairingText === "" && pairedWines.length === 0)) {
         gatsbyApp.errorMessage.textContent = "I'm sorry, Old Sport. Not quite sure what that is.";
     } else if (pairedWines.length === 0 && pairingText !== "") {
@@ -34,7 +36,9 @@ gatsbyApp.displayData = (pairedWines, pairingText) => {
             //HTML that will be contained within <li> (pairingOption)
             gatsbyApp.pairingOption.innerHTML = `
                     <i class="fas fa-wine-glass-alt"></i>
-                    <p>${wine}</p>
+                    <div class="text-box">
+                        <p>${wine}</p>
+                    </div>
                 `;
             //Appends newly created <li>s to the <ul> AKA wineResults
             gatsbyApp.wineResults.append(gatsbyApp.pairingOption);
