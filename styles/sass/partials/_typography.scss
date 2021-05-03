@@ -9,6 +9,15 @@ body {
     font-family: $raleway;
 }
 
+a {
+    color: $white;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
 h1,
 h2,
 h3,
@@ -39,4 +48,14 @@ p {
     p:nth-child(4) {
         font-style: italic;
     }
-}    
+}
+
+//Form typography styles
+
+input::placeholder {
+     font-family: $raleway;
+}
+
+button {
+    font-family: $raleway;
+}
