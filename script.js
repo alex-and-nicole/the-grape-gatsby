@@ -16,11 +16,11 @@ gatsbyApp.errorMessage = document.querySelector('.error');
 
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
-    if (pairedWines === undefined) {
+    if (pairedWines === undefined || (pairingText === "" && pairedWines.length === 0)) {
         gatsbyApp.errorMessage.textContent = "I'm sorry, Old Sport. Not quite sure what that is.";
     } else if (pairedWines.length === 0 && pairingText !== "") {
         gatsbyApp.pairingDescription.innerHTML = `
-            <h3>Wine Pairing Flavour Profile:</h3>
+            <h3>"I don't have a specific wine for that but here is the flavour profile--"</h3>
             <p>${pairingText}</p>`;
     } else {
         // Iterates through wine pairing array
@@ -65,7 +65,7 @@ gatsbyApp.getData = (userInput) => {
             return response.json();
         })
         .then((jsonResponse) => {
-            // console.log(jsonResponse);
+            console.log(jsonResponse);
             gatsbyApp.displayData(jsonResponse.pairedWines, jsonResponse.pairingText);
         })
 }
