@@ -35,7 +35,7 @@ gatsbyApp.displayData = (pairedWines, pairingText) => {
             
             //HTML that will be contained within <li> (pairingOption)
             gatsbyApp.pairingOption.innerHTML = `
-                    <i class="fas fa-wine-glass-alt"></i>
+                    <i class="fas fa-wine-glass-alt" aria-hidden="true"></i>
                     <div class="text-box">
                         <p>${wine}</p>
                     </div>
