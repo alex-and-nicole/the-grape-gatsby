@@ -354,7 +354,7 @@ li i {
 }
 
 .text-box {
-  width: 13rem;
+  width: 17rem;
   height: 5rem;
   background-color: #DACDD5;
   display: flex;
@@ -365,7 +365,7 @@ li i {
 }
 
 .text-box p {
-  max-width: 11rem;
+  max-width: 16rem;
 }
 
 header {

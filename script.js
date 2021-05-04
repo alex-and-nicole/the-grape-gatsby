@@ -18,12 +18,17 @@ gatsbyApp.errorMessage = document.querySelector('.error');
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
     gatsbyApp.resultsContainer.classList.remove('hide');
+    //5 - Error handling
+    // * if user inputs an invalid string (i.e a main dish that doesn't return any data), print to the page that there are no results
     if (pairedWines === undefined || (pairingText === "" && pairedWines.length === 0)) {
         gatsbyApp.errorMessage.textContent = "I'm sorry, Old Sport. I don't think wine will go well with that.";
+    // * if the API returns only a pairing description, and no wines, append only that description
     } else if (pairedWines.length === 0 && pairingText !== "") {
         gatsbyApp.pairingDescription.innerHTML = `
             <h3>"I don't have a specific wine for that, but here is its flavour profile--"</h3>
-            <p>${pairingText}</p>`;
+            <p>${pairingText}</p>
+        `;
+    // * if the API returns data, display the data on the page
     } else {
         // Iterates through wine pairing array
         pairedWines.forEach((wine) => {
@@ -46,14 +51,11 @@ gatsbyApp.displayData = (pairedWines, pairingText) => {
             //HTML that is generated within div.results-text
             gatsbyApp.pairingDescription.innerHTML = `
                 <h3>Wine Pairing Flavour Profile:</h3>
-                <p>${pairingText}</p>`;
+                <p>${pairingText}</p>
+            `;
         });
     }
 }
-
-// * IF the API returns data, display the data on the page (i.e call the display function)
-// * ELSE (no data return) run error handling function!!!!!
-
 
 
 // A function that makes the initial API call to the browser
@@ -107,16 +109,6 @@ gatsbyApp.init = () => {
     });
 }
 
+
 // 3 - Call init function
 gatsbyApp.init();
-
-
-//5 - Error handling function
-    // * if user clicks without actually inputting any data in the form, alert them to do so
-    // * if user inputs an invalid string (i.e a main dish that doesn't retrun anything), print to the page that there are no results
-
-
-
-
-
-
