@@ -32,7 +32,7 @@ h1 {
     left: 0;
     color: $white;
     overflow: hidden;
-    animation: fill 6s 2;
+    animation: fill 12s 1;
   }
 }
 
@@ -40,7 +40,13 @@ h1 {
   0% {
     height: 100%;
   }
-  50% {
+  30% {
+    height: 25%;
+  }
+  60% {
+    height: 60%;
+  }
+  75% {
     height: 30%;
   }
   100% {

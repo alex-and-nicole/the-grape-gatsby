@@ -389,14 +389,20 @@ h1 span:before {
   left: 0;
   color: #fff;
   overflow: hidden;
-  animation: fill 6s 2;
+  animation: fill 12s 1;
 }
 
 @keyframes fill {
   0% {
     height: 100%;
   }
-  50% {
+  30% {
+    height: 25%;
+  }
+  60% {
+    height: 60%;
+  }
+  75% {
     height: 30%;
   }
   100% {
