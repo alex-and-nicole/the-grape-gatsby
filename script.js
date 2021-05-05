@@ -5,15 +5,50 @@ const gatsbyApp = {}
 gatsbyApp.apiKey = '1c9c06b783734e7c83e8eb8afb05185f';
 // gatsbyApp.apiKey = '440d6164874e4c1cadd56c5f2f61dcbd';
 gatsbyApp.url = new URL('https://api.spoonacular.com/food/wine/pairing');
-// Stored HTML elements variables
-gatsbyApp.form = document.querySelector('form');
-gatsbyApp.input = document.querySelector('input');
-gatsbyApp.wineResults = document.querySelector('.wine');
-gatsbyApp.resultsContainer = document.querySelector('.results-container');
-gatsbyApp.resultsHeading = document.querySelector('.results-heading');
-gatsbyApp.pairingDescription = document.querySelector('.results-text');
-gatsbyApp.errorMessage = document.querySelector('.error');
+gatsbyApp.urlTwo = new URL('https://api.spoonacular.com/food/wine/recommendation');
 
+// Store HTML elements in variables within a function
+gatsbyApp.gatherElements = () => {
+    gatsbyApp.form = document.querySelector('form');
+    gatsbyApp.input = document.querySelector('input');
+    gatsbyApp.wineResults = document.querySelector('.wine');
+    gatsbyApp.resultsContainer = document.querySelector('.results-container');
+    gatsbyApp.resultsHeading = document.querySelector('.results-heading');
+    gatsbyApp.pairingDescription = document.querySelector('.results-text');
+    gatsbyApp.errorMessage = document.querySelector('.error');
+}
+
+gatsbyApp.getMoreData = (wineClicked) => {
+    gatsbyApp.urlTwo.search = new URLSearchParams({
+        apiKey: gatsbyApp.apiKey,
+        wine: wineClicked,
+        number: 3,
+    })
+
+    fetch(gatsbyApp.urlTwo)
+        .then((response) => {
+            console.log(response);
+            return response.json();
+        })
+        .then((jsonResponse) => {
+            console.log(jsonResponse);
+        })
+}
+
+
+gatsbyApp.activateButtons = () => {
+    gatsbyApp.wineButton = document.querySelectorAll('.text-box');
+    console.log(gatsbyApp.wineButton[0]);
+    for (let i of gatsbyApp.wineButton) {
+        // Add event listener to the new buttons from results
+        i.addEventListener('click', (event) => {
+            gatsbyApp.wineType = event.target.innerText;
+            console.log(gatsbyApp.wineType);
+            //Call function which make request to API's second endpoint, pass in event.target.innerText as argument
+            gatsbyApp.getMoreData(gatsbyApp.wineType);
+        })
+    }
+}
 
 // A function that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
@@ -41,9 +76,9 @@ gatsbyApp.displayData = (pairedWines, pairingText) => {
             //HTML that will be contained within <li> (pairingOption)
             gatsbyApp.pairingOption.innerHTML = `
                     <img src="./assets/wine-icon.png" alt="">
-                    <div class="text-box">
+                    <button class="text-box">
                         <p>${wine}</p>
-                    </div>
+                    </button>
                 `;
             //Appends newly created <li>s to the <ul> AKA wineResults
             gatsbyApp.wineResults.append(gatsbyApp.pairingOption);
@@ -54,6 +89,8 @@ gatsbyApp.displayData = (pairedWines, pairingText) => {
                 <p>${pairingText}</p>
             `;
         });
+
+        gatsbyApp.activateButtons();
     }
 }
 
@@ -79,6 +116,9 @@ gatsbyApp.getData = (userInput) => {
 
 //Defines the initialization function
 gatsbyApp.init = () => {
+    // Call the gatherElements function to have all HTML elements ready before running rest of app
+    gatsbyApp.gatherElements();
+
     // Event listener
     // * On submit: create variable to store user's form input (i.e. their main dish)
     // * take user's input to make a request to the API (i.e call the API call function and pass in the user's input as the argument)
