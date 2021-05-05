@@ -104,5 +104,11 @@ li img {
     background-color: aliceblue;
     padding: 3rem;
     min-height: 60%;
+    li {
+      margin: 1rem 0;
+    }
+    a {
+      color: $black;
+    }
   }
 }

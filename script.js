@@ -32,7 +32,9 @@ gatsbyApp.displayInModal = (recommendedProducts) => {
     recommendedProducts.forEach((product) => {
         console.log(product.title); 
         gatsbyApp.modalList = document.createElement('li');
-        gatsbyApp.modalList.textContent = product.title;
+        gatsbyApp.modalList.innerHTML = `
+        <a href="${product.link}">${product.title}</a>, ${product.price}
+        `;
         gatsbyApp.modalResults.append(gatsbyApp.modalList);
     })
 }
@@ -42,7 +44,7 @@ gatsbyApp.getMoreData = (wineClicked) => {
     gatsbyApp.urlTwo.search = new URLSearchParams({
         apiKey: gatsbyApp.apiKey,
         wine: wineClicked,
-        number: 3,
+        number: 5,
     })
 
     fetch(gatsbyApp.urlTwo)

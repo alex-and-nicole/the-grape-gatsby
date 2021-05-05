@@ -522,6 +522,14 @@ li img {
   min-height: 60%;
 }
 
+.modal .modal-content li {
+  margin: 1rem 0;
+}
+
+.modal .modal-content a {
+  color: #000;
+}
+
 footer {
   background-color: black;
   color: #fff;
