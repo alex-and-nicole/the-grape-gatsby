@@ -2,8 +2,8 @@
 
 //App name space object variable: 
 const gatsbyApp = {}
-gatsbyApp.apiKey = '1c9c06b783734e7c83e8eb8afb05185f';
-// gatsbyApp.apiKey = '440d6164874e4c1cadd56c5f2f61dcbd';
+// gatsbyApp.apiKey = '1c9c06b783734e7c83e8eb8afb05185f';
+gatsbyApp.apiKey = '440d6164874e4c1cadd56c5f2f61dcbd';
 gatsbyApp.url = new URL('https://api.spoonacular.com/food/wine/pairing');
 gatsbyApp.urlTwo = new URL('https://api.spoonacular.com/food/wine/recommendation');
 
@@ -16,7 +16,29 @@ gatsbyApp.gatherElements = () => {
     gatsbyApp.resultsHeading = document.querySelector('.results-heading');
     gatsbyApp.pairingDescription = document.querySelector('.results-text');
     gatsbyApp.errorMessage = document.querySelector('.error');
+    gatsbyApp.modal = document.querySelector('.modal');
+    gatsbyApp.modalResults = document.querySelector('.product-list');
 }
+
+window.onclick = function(event) {
+  if (event.target == gatsbyApp.modal) {
+    gatsbyApp.modal.classList.add('hide');
+  }
+} 
+
+// Function that will display the recommended wine products from second API call in modal box
+gatsbyApp.displayInModal = (recommendedProducts) => {
+    //clear the old results
+    // gatsbyApp.modalList.textContent = ''
+
+    recommendedProducts.forEach((product) => {
+        console.log(product.title); 
+        gatsbyApp.modalList = document.createElement('li');
+        gatsbyApp.modalList.textContent = product.title;
+        gatsbyApp.modalResults.append(gatsbyApp.modalList);
+    })
+}
+
 
 gatsbyApp.getMoreData = (wineClicked) => {
     gatsbyApp.urlTwo.search = new URLSearchParams({
@@ -32,20 +54,25 @@ gatsbyApp.getMoreData = (wineClicked) => {
         })
         .then((jsonResponse) => {
             console.log(jsonResponse);
+
+            //Call display function
+            gatsbyApp.displayInModal(jsonResponse.recommendedWines);
         })
 }
 
 
 gatsbyApp.activateButtons = () => {
     gatsbyApp.wineButton = document.querySelectorAll('.text-box');
-    console.log(gatsbyApp.wineButton[0]);
+    // console.log(gatsbyApp.wineButton[0]);
     for (let i of gatsbyApp.wineButton) {
         // Add event listener to the new buttons from results
         i.addEventListener('click', (event) => {
             gatsbyApp.wineType = event.target.innerText;
-            console.log(gatsbyApp.wineType);
+            // console.log(gatsbyApp.wineType);
             //Call function which make request to API's second endpoint, pass in event.target.innerText as argument
             gatsbyApp.getMoreData(gatsbyApp.wineType);
+
+            gatsbyApp.modal.classList.remove('hide');
         })
     }
 }
