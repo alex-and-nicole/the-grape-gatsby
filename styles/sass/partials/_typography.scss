@@ -70,25 +70,7 @@ button {
 
 // Results styling
 
-li i {
-  font-size: 10rem;
-}
-
 .results-heading {
   font-weight: normal;
   font-size: 3rem;
-}
-
-.text-box {
-  width: 17rem;
-  height: 5rem;
-  background-color: $light-pink;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  margin-top: 1rem;
-  p {
-    max-width: 16rem;
-  }
 }

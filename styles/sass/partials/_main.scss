@@ -2,7 +2,7 @@
 
 main {
   padding: 5rem 0 10rem 0;
-  min-height: 50vh;
+  min-height: 60vh;
   background-color: $beige;
 }
 
@@ -47,6 +47,10 @@ button {
   }
 }
 
+li img {
+  width: 75%;
+}
+
 .results-heading {
   position: absolute;
   top: -2.8rem;
@@ -65,6 +69,20 @@ button {
   .error {
     position: relative;
     top: 5rem;
+  }
+}
+
+.text-box {
+  width: 17rem;
+  height: 5rem;
+  background-color: $light-pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  p {
+    max-width: 16rem;
   }
 }
 
