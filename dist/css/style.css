@@ -537,23 +537,11 @@ footer {
 
 @media (max-width: 690px) {
   header {
-    padding-top: 6rem;
+    padding: 6rem 0 5rem;
   }
   header .text-container {
     position: static;
     width: 100%;
-  }
-  footer {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 450px) {
-  header {
-    padding-bottom: 5rem;
-  }
-  header .text-container {
-    padding: 3rem;
   }
   header .text-container h1 {
     font-size: 6rem;
@@ -563,6 +551,15 @@ footer {
   }
   header .text-container h2 {
     font-size: 2.5rem;
+  }
+  footer {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 450px) {
+  header .text-container {
+    padding: 3rem;
   }
   .results-heading {
     font-size: 2rem;
