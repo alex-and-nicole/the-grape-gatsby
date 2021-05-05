@@ -20,6 +20,7 @@ gatsbyApp.gatherElements = () => {
     gatsbyApp.modalResults = document.querySelector('.product-list');
 }
 
+// Hide modal when user clicks on any part of the modal
 window.onclick = function(event) {
   if (event.target == gatsbyApp.modal) {
     gatsbyApp.modal.classList.add('hide');
@@ -28,9 +29,6 @@ window.onclick = function(event) {
 
 // Function that will display the recommended wine products from second API call in modal box
 gatsbyApp.displayInModal = (recommendedProducts) => {
-    //clear the old results
-    // gatsbyApp.modalList.textContent = ''
-
     recommendedProducts.forEach((product) => {
         console.log(product.title); 
         gatsbyApp.modalList = document.createElement('li');
@@ -72,6 +70,10 @@ gatsbyApp.activateButtons = () => {
             //Call function which make request to API's second endpoint, pass in event.target.innerText as argument
             gatsbyApp.getMoreData(gatsbyApp.wineType);
 
+            //clear the old results
+            gatsbyApp.modalResults.textContent = ''
+
+            //show modal when a button is clicked
             gatsbyApp.modal.classList.remove('hide');
         })
     }

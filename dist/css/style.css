@@ -389,7 +389,7 @@ h1 span:before {
   left: 0;
   color: #fff;
   overflow: hidden;
-  animation: fill 12s 1;
+  animation: fill 6s 1;
 }
 
 @keyframes fill {
@@ -519,6 +519,7 @@ li img {
 .modal .modal-content {
   background-color: aliceblue;
   padding: 3rem;
+  min-height: 60%;
 }
 
 footer {
