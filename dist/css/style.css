@@ -303,6 +303,10 @@ p {
   padding: 0;
 }
 
+p {
+  line-height: 2.8rem;
+}
+
 .text-container {
   color: #fff;
   border: 0.3rem #fff solid;
@@ -467,4 +471,77 @@ footer {
   color: #fff;
   text-align: center;
   padding: 1rem 2rem;
+}
+
+@media (max-width: 1280px) {
+  header .text-container {
+    bottom: 3.5rem;
+    right: 3.5rem;
+  }
+  .results-container {
+    padding: 3rem 0 10rem;
+  }
+  .results-container ul li {
+    margin: 5rem 2rem;
+  }
+  .results-container .results-text {
+    width: 80%;
+  }
+}
+
+@media (max-width: 765px) {
+  input {
+    width: 85%;
+  }
+  button {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 690px) {
+  header {
+    padding-top: 6rem;
+  }
+  header .text-container {
+    position: static;
+    width: 100%;
+  }
+  footer {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 450px) {
+  header {
+    padding-bottom: 5rem;
+  }
+  header .text-container {
+    padding: 3rem;
+  }
+  header .text-container h1 {
+    font-size: 6rem;
+  }
+  header .text-container h2 {
+    font-size: 2.5rem;
+  }
+  .results-heading {
+    font-size: 2rem;
+    top: -1.8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  header {
+    background-attachment: scroll;
+    padding-top: 3rem;
+  }
+  header .text-container {
+    text-align: center;
+  }
+  header .text-container h1 {
+    font-size: 5rem;
+  }
+  header .text-container h2 {
+    font-size: 2rem;
+  }
 }
