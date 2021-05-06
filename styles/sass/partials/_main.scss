@@ -84,6 +84,10 @@ li img {
   p {
     max-width: 16rem;
   }
+  &:hover,
+  &:focus {
+    background-color: lighten(#dacdd5, 10);
+  }
 }
 
 .results-text {
@@ -95,20 +99,34 @@ li img {
   position: fixed;
   top: 0rem;
   left: 0rem;
-  padding: 10rem;
+  padding: 15rem;
   z-index: 10;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: rgba(0, 0, 0, 0.5);
   .modal-content {
-    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $white;
     padding: 3rem;
-    min-height: 60%;
-    li {
-      margin: 1rem 0;
-    }
-    a {
-      color: $black;
-    }
+    border: 2px dotted $black;
   }
+}
+
+.modal-content li {
+  margin: 1rem 0;
+  list-style: none;
+  a {
+    color: $black;
+  }
+}
+
+.modal-content li:before {
+  content: "";
+  background-image: url("../../assets/wine-glass-alt-solid.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 2rem;
+  width: 2.5rem;
 }

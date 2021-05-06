@@ -500,6 +500,10 @@ li img {
   max-width: 16rem;
 }
 
+.text-box:hover, .text-box:focus {
+  background-color: #f0eaee;
+}
+
 .results-text {
   width: 60rem;
   padding-top: 5rem;
@@ -509,25 +513,38 @@ li img {
   position: fixed;
   top: 0rem;
   left: 0rem;
-  padding: 10rem;
+  padding: 15rem;
   z-index: 10;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal .modal-content {
-  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
   padding: 3rem;
-  min-height: 60%;
+  border: 2px dotted #000;
 }
 
-.modal .modal-content li {
+.modal-content li {
   margin: 1rem 0;
+  list-style: none;
 }
 
-.modal .modal-content a {
+.modal-content li a {
   color: #000;
+}
+
+.modal-content li:before {
+  content: "";
+  background-image: url("../../assets/wine-glass-alt-solid.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 2rem;
+  width: 2.5rem;
 }
 
 footer {
