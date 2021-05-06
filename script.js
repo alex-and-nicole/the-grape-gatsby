@@ -17,26 +17,39 @@ gatsbyApp.gatherElements = () => {
     gatsbyApp.pairingDescription = document.querySelector('.results-text');
     gatsbyApp.errorMessage = document.querySelector('.error');
     gatsbyApp.modal = document.querySelector('.modal');
+    gatsbyApp.modalContent = document.querySelector('.modal-content');
     gatsbyApp.modalResults = document.querySelector('.product-list');
 }
 
 // Hide modal when user clicks on any part of the modal
-window.onclick = function(event) {
-  if (event.target == gatsbyApp.modal) {
+window.addEventListener('click', (event) => {
+  if (event.target === gatsbyApp.modal) {
     gatsbyApp.modal.classList.add('hide');
   }
-} 
+})
+// Hide modal when user presses esc key
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    gatsbyApp.modal.classList.add('hide');
+  }
+})
 
 // Function that will display the recommended wine products from second API call in modal box
 gatsbyApp.displayInModal = (recommendedProducts) => {
-    recommendedProducts.forEach((product) => {
-        console.log(product.title); 
-        gatsbyApp.modalList = document.createElement('li');
-        gatsbyApp.modalList.innerHTML = `
-        <a href="${product.link}">${product.title}</a>, ${product.price}
-        `;
-        gatsbyApp.modalResults.append(gatsbyApp.modalList);
-    })
+    if (recommendedProducts.length === 0) {
+        gatsbyApp.nothingMessage = document.createElement('p');
+        gatsbyApp.nothingMessage.textContent = `"Sorry, I couldn't find any matches for this wine."`;
+        gatsbyApp.modalResults.appendChild(gatsbyApp.nothingMessage);
+    } else {
+        recommendedProducts.forEach((product) => {
+            console.log(product.title); 
+            gatsbyApp.modalList = document.createElement('li');
+            gatsbyApp.modalList.innerHTML = `
+            <a href="${product.link}">${product.title}</a>, ${product.price}
+            `;
+            gatsbyApp.modalResults.append(gatsbyApp.modalList);
+        })
+    }
 }
 
 
@@ -73,7 +86,7 @@ gatsbyApp.activateButtons = () => {
             gatsbyApp.getMoreData(gatsbyApp.wineType);
 
             //clear the old results
-            gatsbyApp.modalResults.textContent = ''
+            gatsbyApp.modalResults.textContent = '';
 
             //show modal when a button is clicked
             gatsbyApp.modal.classList.remove('hide');
