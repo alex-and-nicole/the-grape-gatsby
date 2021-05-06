@@ -34,11 +34,12 @@ window.addEventListener('keydown', (event) => {
   }
 })
 
-// Function that will display the recommended wine products from second API call in modal box
+// Method that will display the recommended wine products from second API call in modal box
 gatsbyApp.displayInModal = (recommendedProducts) => {
     if (recommendedProducts.length === 0) {
         gatsbyApp.nothingMessage = document.createElement('p');
         gatsbyApp.nothingMessage.textContent = `"Sorry, I couldn't find any matches for this wine."`;
+        // !! Below is not semantically correct b/c <p> is nested in a <ul> when nothingMessage (p)is appended to modalResults (ul)
         gatsbyApp.modalResults.appendChild(gatsbyApp.nothingMessage);
     } else {
         recommendedProducts.forEach((product) => {
@@ -52,7 +53,7 @@ gatsbyApp.displayInModal = (recommendedProducts) => {
     }
 }
 
-
+// Make second call to API to gather data on recommended wines
 gatsbyApp.getMoreData = (wineClicked) => {
     gatsbyApp.urlTwo.search = new URLSearchParams({
         apiKey: gatsbyApp.apiKey,
@@ -73,7 +74,7 @@ gatsbyApp.getMoreData = (wineClicked) => {
         })
 }
 
-
+// Method that adds event listeners to the wine buttons 
 gatsbyApp.activateButtons = () => {
     gatsbyApp.wineButton = document.querySelectorAll('.text-box');
     // console.log(gatsbyApp.wineButton[0]);
@@ -82,7 +83,7 @@ gatsbyApp.activateButtons = () => {
         i.addEventListener('click', (event) => {
             gatsbyApp.wineType = event.target.innerText;
             // console.log(gatsbyApp.wineType);
-            //Call function which make request to API's second endpoint, pass in event.target.innerText as argument
+            //Call method which make request to API's second endpoint, pass in event.target.innerText as argument
             gatsbyApp.getMoreData(gatsbyApp.wineType);
 
             //clear the old results
@@ -94,7 +95,7 @@ gatsbyApp.activateButtons = () => {
     }
 }
 
-// A function that displays the data returned from API call
+// A method that displays the data returned from API call
 gatsbyApp.displayData = (pairedWines, pairingText) => {
     gatsbyApp.resultsContainer.classList.remove('hide');
     //5 - Error handling
@@ -134,6 +135,7 @@ gatsbyApp.displayData = (pairedWines, pairingText) => {
             `;
         });
 
+        // Call the activateButtons method so that the buttons do something when clicked
         gatsbyApp.activateButtons();
     }
 }
