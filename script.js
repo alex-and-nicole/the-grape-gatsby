@@ -2,8 +2,10 @@
 
 //App name space object variable: 
 const gatsbyApp = {}
-gatsbyApp.apiKey = '1c9c06b783734e7c83e8eb8afb05185f';
+// gatsbyApp.apiKey = '1c9c06b783734e7c83e8eb8afb05185f';
 // gatsbyApp.apiKey = '440d6164874e4c1cadd56c5f2f61dcbd';
+gatsbyApp.apiKey = '07f4a8d54a244d779fa8c490783083a6';
+
 gatsbyApp.url = new URL('https://api.spoonacular.com/food/wine/pairing');
 gatsbyApp.urlTwo = new URL('https://api.spoonacular.com/food/wine/recommendation');
 
@@ -37,18 +39,16 @@ window.addEventListener('keydown', (event) => {
 // Method that will display the recommended wine products from second API call in modal box
 gatsbyApp.displayInModal = (recommendedProducts) => {
     if (recommendedProducts.length === 0) {
-        gatsbyApp.nothingMessage = document.createElement('p');
-        gatsbyApp.nothingMessage.textContent = `"Sorry, I couldn't find any matches for this wine."`;
-        // !! Below is not semantically correct b/c <p> is nested in a <ul> when nothingMessage (p) is appended to modalResults (ul)
-        gatsbyApp.modalResults.appendChild(gatsbyApp.nothingMessage);
+        const nothingMessage = document.createElement('li');
+        nothingMessage.textContent = `"Sorry, I couldn't find any matches for this wine."`;
+        gatsbyApp.modalResults.appendChild(nothingMessage);
     } else {
         recommendedProducts.forEach((product) => {
-            console.log(product.title); 
-            gatsbyApp.modalList = document.createElement('li');
-            gatsbyApp.modalList.innerHTML = `
+            const modalList = document.createElement('li');
+            modalList.innerHTML = `
             <a href="${product.link}">${product.title}</a>, ${product.price}
             `;
-            gatsbyApp.modalResults.append(gatsbyApp.modalList);
+            gatsbyApp.modalResults.append(modalList);
         })
     }
 }
@@ -63,12 +63,10 @@ gatsbyApp.getMoreData = (wineClicked) => {
 
     fetch(gatsbyApp.urlTwo)
         .then((response) => {
-            console.log(response);
             return response.json();
         })
         .then((jsonResponse) => {
-            console.log(jsonResponse);
-
+            // console.log(jsonResponse);
             //Call display function
             gatsbyApp.displayInModal(jsonResponse.recommendedWines);
         })
@@ -76,15 +74,13 @@ gatsbyApp.getMoreData = (wineClicked) => {
 
 // Method that adds event listeners to the wine buttons 
 gatsbyApp.activateButtons = () => {
-    gatsbyApp.wineButton = document.querySelectorAll('.text-box');
-    // console.log(gatsbyApp.wineButton[0]);
-    for (let i of gatsbyApp.wineButton) {
+    const wineButton = document.querySelectorAll('.text-box');
+    for (let i of wineButton) {
         // Add event listener to the new buttons from results
         i.addEventListener('click', (event) => {
-            gatsbyApp.wineType = event.target.innerText;
-            // console.log(gatsbyApp.wineType);
+            const wineType = event.target.innerText;
             //Call method which make request to API's second endpoint, pass in event.target.innerText as argument
-            gatsbyApp.getMoreData(gatsbyApp.wineType);
+            gatsbyApp.getMoreData(wineType);
 
             //clear the old results
             gatsbyApp.modalResults.textContent = '';
@@ -150,11 +146,9 @@ gatsbyApp.getData = (userInput) => {
 
     fetch(gatsbyApp.url)
         .then((response) => {
-            console.log(response);
             return response.json();
         })
         .then((jsonResponse) => {
-            console.log(jsonResponse);
             gatsbyApp.displayData(jsonResponse.pairedWines, jsonResponse.pairingText);
         })
 }
@@ -183,14 +177,14 @@ gatsbyApp.init = () => {
         
         //Clear previous search results
         const clearPairOption = gatsbyApp.wineResults;
-        clearPairOption.innerHTML = '';
-        gatsbyApp.pairingDescription.innerHTML = '';
+        clearPairOption.replaceChildren();
+        gatsbyApp.pairingDescription.replaceChildren();
 
         //Remove error message on submit
-        gatsbyApp.errorMessage.textContent = '';
+        gatsbyApp.errorMessage.replaceChildren();
         
         //Removes "Suggested wine pairings" heading
-        gatsbyApp.resultsHeading.textContent = '';
+        gatsbyApp.resultsHeading.replaceChildren();
             
     });
 }
