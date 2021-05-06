@@ -39,7 +39,7 @@ gatsbyApp.displayInModal = (recommendedProducts) => {
     if (recommendedProducts.length === 0) {
         gatsbyApp.nothingMessage = document.createElement('p');
         gatsbyApp.nothingMessage.textContent = `"Sorry, I couldn't find any matches for this wine."`;
-        // !! Below is not semantically correct b/c <p> is nested in a <ul> when nothingMessage (p)is appended to modalResults (ul)
+        // !! Below is not semantically correct b/c <p> is nested in a <ul> when nothingMessage (p) is appended to modalResults (ul)
         gatsbyApp.modalResults.appendChild(gatsbyApp.nothingMessage);
     } else {
         recommendedProducts.forEach((product) => {
@@ -53,7 +53,7 @@ gatsbyApp.displayInModal = (recommendedProducts) => {
     }
 }
 
-// Make second call to API to gather data on recommended wines
+// Make second call to API to gather data on recommended wines (!! Can I make both API calls in one? There is a noticeable lag right now when second call is made)
 gatsbyApp.getMoreData = (wineClicked) => {
     gatsbyApp.urlTwo.search = new URLSearchParams({
         apiKey: gatsbyApp.apiKey,
