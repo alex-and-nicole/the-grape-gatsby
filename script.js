@@ -40,6 +40,7 @@ window.addEventListener('keydown', (event) => {
 gatsbyApp.displayInModal = (recommendedProducts) => {
     if (recommendedProducts.length === 0) {
         const nothingMessage = document.createElement('li');
+        nothingMessage.classList.add('nothing-message');
         nothingMessage.textContent = `"Sorry, I couldn't find any matches for this wine."`;
         gatsbyApp.modalResults.appendChild(nothingMessage);
     } else {
@@ -66,7 +67,7 @@ gatsbyApp.getMoreData = (wineClicked) => {
             return response.json();
         })
         .then((jsonResponse) => {
-            // console.log(jsonResponse);
+            console.log(jsonResponse);
             //Call display function
             gatsbyApp.displayInModal(jsonResponse.recommendedWines);
         })

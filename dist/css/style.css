@@ -531,20 +531,15 @@ li img {
 
 .modal-content li {
   margin: 1rem 0;
-  list-style: none;
 }
 
 .modal-content li a {
   color: #000;
 }
 
-.modal-content li:before {
-  content: "";
-  background-image: url("../../assets/wine-glass-alt-solid.svg");
-  background-repeat: no-repeat;
-  display: inline-block;
-  height: 2rem;
-  width: 2.5rem;
+.nothing-message {
+  list-style: none;
+  margin-left: -4rem !important;
 }
 
 footer {
@@ -581,6 +576,12 @@ footer {
     text-align: center;
     padding: 0 2rem;
   }
+  .modal {
+    padding: 15rem 4rem;
+  }
+  .modal .modal-content {
+    padding: 8rem 3rem;
+  }
 }
 
 @media (max-width: 690px) {
@@ -613,6 +614,12 @@ footer {
     font-size: 2rem;
     top: -1.8rem;
   }
+  .modal-content ul {
+    padding-left: 1.7rem;
+  }
+  .nothing-message {
+    margin: 1rem !important;
+  }
 }
 
 @media (max-width: 375px) {
@@ -631,5 +638,15 @@ footer {
   }
   header .text-container h2 {
     font-size: 2rem;
+  }
+  .modal {
+    padding: 15rem 2rem;
+  }
+  .modal .modal-content {
+    padding: 4rem 3rem;
+  }
+  .modal h3 {
+    font-size: 2rem;
+    text-align: center;
   }
 }

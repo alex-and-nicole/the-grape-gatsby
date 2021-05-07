@@ -116,17 +116,13 @@ li img {
 
 .modal-content li {
   margin: 1rem 0;
-  list-style: none;
   a {
     color: $black;
   }
 }
 
-.modal-content li:before {
-  content: "";
-  background-image: url("../../assets/wine-glass-alt-solid.svg");
-  background-repeat: no-repeat;
-  display: inline-block;
-  height: 2rem;
-  width: 2.5rem;
+.nothing-message {
+  list-style: none;
+  margin-left: -4rem !important;
 }
+
