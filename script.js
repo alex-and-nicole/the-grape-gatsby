@@ -19,18 +19,21 @@ gatsbyApp.gatherElements = () => {
     gatsbyApp.modalResults = document.querySelector('.product-list');
 }
 
-// Hide modal when user clicks on any part of the modal
-window.addEventListener('click', (event) => {
-  if (event.target === gatsbyApp.modal) {
-    gatsbyApp.modal.classList.add('hide');
-  }
-})
-// Hide modal when user presses esc key
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    gatsbyApp.modal.classList.add('hide');
-  }
-})
+// Method that will hide the modal
+gatsbyApp.hideModal = () => {
+    // When user clicks on any part of the modal
+    window.addEventListener('click', (event) => {
+        if (event.target === gatsbyApp.modal) {
+            gatsbyApp.modal.classList.add('hide');
+        }
+    });
+    // When user presses esc key
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            gatsbyApp.modal.classList.add('hide');
+        }
+    });
+}
 
 // Method that will display the recommended wine products from second API call in modal box
 gatsbyApp.displayInModal = (recommendedProducts) => {
@@ -63,7 +66,7 @@ gatsbyApp.getMoreData = (wineClicked) => {
             return response.json();
         })
         .then((jsonResponse) => {
-            //Call display function
+            //Call display method
             gatsbyApp.displayInModal(jsonResponse.recommendedWines);
         })
 }
@@ -133,7 +136,7 @@ gatsbyApp.displayData = (pairedWines, pairingText) => {
 }
 
 
-// A function that makes the initial API call to the browser
+// A method that makes the initial API call to the browser
 gatsbyApp.getData = (userInput) => {
     gatsbyApp.url.search = new URLSearchParams({
         food: userInput,
@@ -152,7 +155,7 @@ gatsbyApp.getData = (userInput) => {
 
 // Initialization method
 gatsbyApp.init = () => {
-    // Call the gatherElements function to have all HTML elements ready before running rest of app
+    // Call the gatherElements method to have all HTML elements ready before running rest of app
     gatsbyApp.gatherElements();
 
     // Event listener
@@ -179,12 +182,16 @@ gatsbyApp.init = () => {
         // Remove error message on submit
         gatsbyApp.errorMessage.replaceChildren();
         
-        // Removes "Suggested wine pairings" heading
+        // Remove "Suggested wine pairings" heading
         gatsbyApp.resultsHeading.replaceChildren();
             
     });
+
+    // Call method that hides the modal when it is clicked or when esc key is pressed
+    gatsbyApp.hideModal();
+
 }
 
 
-// Call init function
+// Initialize the app
 gatsbyApp.init();
