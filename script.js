@@ -34,8 +34,9 @@ gatsbyApp.hideModal = () => {
         }
     });
     
-    //Store modal-exit button in a variable
+    // Store modal-exit button in a variable
     const modalExit = document.querySelector('.modal-exit');
+    // Hide modal when 'x' icon is clicked
     modalExit.addEventListener('click', () => {
         gatsbyApp.modal.classList.add('hide');
     })
