@@ -183,7 +183,7 @@ gatsbyApp.init = () => {
         
         // Clear previous search results
         const clearPairOption = gatsbyApp.wineResults;
-        clearPairOption.replaceChildren();
+        clearPairOption.innerHTML = '';
         gatsbyApp.pairingDescription.innerHTML = '';
 
         // Remove error message on submit
