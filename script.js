@@ -89,7 +89,7 @@ gatsbyApp.activateButtons = () => {
             gatsbyApp.getMoreData(wineType);
 
             //clear the old results
-            gatsbyApp.modalResults.replaceChildren();
+            gatsbyApp.modalResults.textContent = '';
 
             //show modal when a button is clicked
             gatsbyApp.modal.classList.remove('hide');
