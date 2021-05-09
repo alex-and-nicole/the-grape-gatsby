@@ -34,7 +34,6 @@
       padding: 8rem 3rem;
     }
   }
-
 }
 
 @media (max-width: 690px) {
@@ -67,10 +66,15 @@
     font-size: 2rem;
     top: -1.8rem;
   }
-  .modal-content ul {
-    padding-left: 1.7rem;
+  .modal {
+    padding: 2rem 2rem 15rem;
+    .modal-content {
+      font-size: 1.6rem;
+      ul {
+        padding-left: 1.7rem;
+      }
+    }
   }
-
   .nothing-message {
     margin: 1rem !important;
   }
@@ -93,12 +97,8 @@
       }
     }
   }
-
-  .modal {
-    padding: 15rem 2rem;
-    .modal-content{
-      padding: 4rem 3rem;
-    }
+  .modal-content {
+    padding: 4rem 3rem;
     h3 {
       font-size: 2rem;
       text-align: center;

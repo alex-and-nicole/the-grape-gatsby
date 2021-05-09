@@ -623,7 +623,13 @@ footer {
     font-size: 2rem;
     top: -1.8rem;
   }
-  .modal-content ul {
+  .modal {
+    padding: 2rem 2rem 15rem;
+  }
+  .modal .modal-content {
+    font-size: 1.6rem;
+  }
+  .modal .modal-content ul {
     padding-left: 1.7rem;
   }
   .nothing-message {
@@ -648,13 +654,10 @@ footer {
   header .text-container h2 {
     font-size: 2rem;
   }
-  .modal {
-    padding: 15rem 2rem;
-  }
-  .modal .modal-content {
+  .modal-content {
     padding: 4rem 3rem;
   }
-  .modal h3 {
+  .modal-content h3 {
     font-size: 2rem;
     text-align: center;
   }
