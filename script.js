@@ -184,13 +184,13 @@ gatsbyApp.init = () => {
         // Clear previous search results
         const clearPairOption = gatsbyApp.wineResults;
         clearPairOption.replaceChildren();
-        gatsbyApp.pairingDescription.replaceChildren();
+        gatsbyApp.pairingDescription.innerHTML = '';
 
         // Remove error message on submit
-        gatsbyApp.errorMessage.replaceChildren();
+        gatsbyApp.errorMessage.textContent = '';
         
         // Remove "Suggested wine pairings" heading
-        gatsbyApp.resultsHeading.replaceChildren();
+        gatsbyApp.resultsHeading.textContent = '';
             
     });
 
