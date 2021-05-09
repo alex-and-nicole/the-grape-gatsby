@@ -632,6 +632,9 @@ footer {
   .modal .modal-content ul {
     padding-left: 1.7rem;
   }
+  .modal-exit {
+    font-size: 2rem;
+  }
   .nothing-message {
     margin: 1rem !important;
   }

@@ -1,6 +1,6 @@
 // App name space object variable 
 const gatsbyApp = {}
-gatsbyApp.apiKey = '07f4a8d54a244d779fa8c490783083a6';
+gatsbyApp.apiKey = '1c9c06b783734e7c83e8eb8afb05185f';
 
 gatsbyApp.url = new URL('https://api.spoonacular.com/food/wine/pairing');
 gatsbyApp.urlTwo = new URL('https://api.spoonacular.com/food/wine/recommendation');
