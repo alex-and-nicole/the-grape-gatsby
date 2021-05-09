@@ -109,8 +109,16 @@ li img {
     flex-direction: column;
     align-items: center;
     background-color: $white;
-    padding: 3rem;
+    padding: 4.5rem 3rem 3rem;
     border: 2px dotted $black;
+    position: relative;
+    .modal-exit {
+      background: transparent;
+      box-shadow: none;
+      position: absolute;
+      right: 0;
+      top: 0.5rem;
+    }
   }
 }
 
@@ -125,4 +133,3 @@ li img {
   list-style: none;
   margin-left: -4rem !important;
 }
-

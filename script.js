@@ -33,6 +33,12 @@ gatsbyApp.hideModal = () => {
             gatsbyApp.modal.classList.add('hide');
         }
     });
+    
+    //Store modal-exit button in a variable
+    const modalExit = document.querySelector('.modal-exit');
+    modalExit.addEventListener('click', () => {
+        gatsbyApp.modal.classList.add('hide');
+    })
 }
 
 // Method that will display the recommended wine products from second API call in modal box

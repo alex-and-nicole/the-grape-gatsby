@@ -525,8 +525,17 @@ li img {
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  padding: 3rem;
+  padding: 4.5rem 3rem 3rem;
   border: 2px dotted #000;
+  position: relative;
+}
+
+.modal .modal-content .modal-exit {
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
 }
 
 .modal-content li {
